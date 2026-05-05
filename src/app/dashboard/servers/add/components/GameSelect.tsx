@@ -1,35 +1,15 @@
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 
-import MinecraftImage from "@/img/games/minecraft.jpg"
-import CounterStrike2Image from "@/img/games/cs2.jpg"
-import CounterStrikeGlobalOffensiveImage from "@/img/games/csgo.jpg"
-import FactorioImage from "@/img/games/factorio.jpg"
+
 import { Input } from "@/components/Input"
 
-export function GameSelect() {
-  const games = [
-    {
-      id: "minecraft",
-      name: "Minecraft",
-      image: MinecraftImage,
-    },
-    {
-      id: "cs2",
-      name: "Counter Strike 2",
-      image: CounterStrike2Image,
-    },
-    {
-      id: "csgo",
-      name: "Counter Strike: Global Offensive",
-      image: CounterStrikeGlobalOffensiveImage
-    },
-    {
-      id: "factorio",
-      name: "Factorio",
-      image: FactorioImage
-    }
-  ]
-
+export function GameSelect({ games }: {
+  games: {
+    image: StaticImageData
+    name: string
+    id: string
+  }[]
+}) {
   return (
     <div className="flex flex-col gap-4 mt-8">
       <Input placeholder="Search..." />
